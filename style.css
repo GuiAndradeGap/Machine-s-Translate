@@ -93,8 +93,9 @@ header{
     height: 200px;
     width: 500px;
     font-size: 24px;
-    border: 1px var(--other-color) solid;
+    border: 1px #A7E3EA solid;
     border-radius: 10px;
+    
 }
 
 .div_translate02{
@@ -104,7 +105,12 @@ header{
     font-size: 24px;
     border: 1px var(--other-color) solid;
     border-radius: 10px;
+    box-shadow: 0px 5px 5px rgb(145, 145, 145);
+    background-color: #F5F5F5;
+    box-shadow: 0.5px 1px 0px 0px rgb(0 0 0 / 20%);
 }
+
+
 
 .div_bases_p{
     color: black;
@@ -112,10 +118,13 @@ header{
     gap: 20px;
     flex-direction: row;
     padding-left: 20px;
+    color: #5F6368;
+    font-weight: bold;
+    
 }
 
 .div_bases_p p{
-    margin: 0px;
+    margin: 5px;
 }
 
 .seta_imagem {
