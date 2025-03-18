@@ -111,7 +111,19 @@ header{
     display: flex;
     gap: 20px;
     flex-direction: row;
+    padding-left: 20px;
 }
+
+.div_bases_p p{
+    margin: 0px;
+}
+
+.seta_imagem {
+    height: 
+    40px;
+    width: 40px;
+}
+
 
 /* .div_conts_title{
     background-color: var(--other-color);
