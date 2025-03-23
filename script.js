@@ -89,28 +89,9 @@ document.getElementById("hex02").addEventListener("click", function(event) {
 
 
 
-document.querySelector(".input_translate01").addEventListener("keydown", (event) => {
+document.querySelector(".input_translate01").addEventListener("input", (event) => {
     valor = event.target.value
     console.log(valor);
-   
-
-    if (event.key === "Backspace" || event.key === "Delete" || event.key === "ArrowLeft" || event.key === "ArrowRight" || event.key === "Tab") {
-        return; 
-    }
-
-    if (baseEntrada == 'binario' ) {
-        
-        if (!/^[01]$/.test(event.key)) {
-            event.preventDefault();  
-        }
-    }
-    if (baseEntrada == 'octal') {
-        
-        if (!/^[01234567]$/.test(event.key)) {
-            event.preventDefault();
-        }
-    }
-
 });
 
 
@@ -155,4 +136,42 @@ function converterValor(valor){
     console.log(resultado);
 
     div_translate02.innerHTML = `${resultado}`
+}
+
+function validarEntrada(event) {
+    if (baseEntrada === 'binario') {
+        return SomenteNumeroBinario(event);
+    } else if (baseEntrada === 'octal') {
+        return SomenteNumeroOctal(event);
+    } else if (baseEntrada === 'hexadecimal') {
+        return SomenteNumeroHexadecimal(event);
+    }
+    return false; 
+}
+
+function SomenteNumeroBinario(event){
+    var tecla=(window.event)?event.keyCode:e.which;
+    if((tecla==48) || (tecla==49)) return true;
+    else {
+        return false
+    }
+}
+
+function SomenteNumeroOctal(event) {
+    var tecla = event.which || event.keyCode;
+    if (tecla >= 48 && tecla <= 55) { // 0 a 7
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function SomenteNumeroHexadecimal(event) {
+    var tecla = event.which || event.keyCode;
+    if ((tecla >= 48 && tecla <= 57) || (tecla >= 65 && tecla <= 70) || (tecla >= 97 && tecla <= 102)) {
+        return true;
+    } else {
+        return false;
+    }
+
 }

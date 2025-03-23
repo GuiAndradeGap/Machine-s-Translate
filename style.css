@@ -102,6 +102,11 @@ header{
    padding: 0px 8%;
 }
 
+input,
+input::placeholder{ 
+  text-align: center;
+}
+
 .input_translate01{
     background-color: var(--bg-color);
     height: 200px;
@@ -109,7 +114,6 @@ header{
     font-size: 16px;
     border: 1px #9EE2EA solid;
     border-radius: 10px;
-    
 }
 
 
@@ -250,18 +254,7 @@ input:focus {
         display: block;
     }
 }
-/* .div_conts_title{
-    background-color: var(--other-color);
-    justify-items: center;
-    width: 100%;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    color: #1b2631;
-}
 
-.div_conts_title p{
-    margin: 0%;
-} */
 
 
 
