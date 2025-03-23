@@ -1,23 +1,47 @@
-let baseEntrada = 'binario';
-let baseSaida = 'decimal';
+let baseEntrada = '';
+let baseSaida = '';
 let valor
+
+
+
+function removerSelecao() {
+    document.getElementById("bin01").classList.remove("selecionado");
+    document.getElementById("dec01").classList.remove("selecionado");
+    document.getElementById("octal01").classList.remove("selecionado");
+    document.getElementById("hex01").classList.remove("selecionado");
+
+}
+
+function removerSelecaoSaida() {
+    document.getElementById("bin02").classList.remove("selecionado2");
+    document.getElementById("dec02").classList.remove("selecionado2");
+    document.getElementById("octal02").classList.remove("selecionado2");
+    document.getElementById("hex02").classList.remove("selecionado2");
+}
 
 
 // Pegar base escolhida no campo esquerdo
 
+
+
 document.getElementById("bin01").addEventListener("click", function(event) {
+    removerSelecao();
+    event.target.classList.add("selecionado");
     baseEntrada = event.target.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-    console.log(baseEntrada); 
+    console.log(baseEntrada);
 });
 
 document.getElementById("dec01").addEventListener("click", function(event) {
+    removerSelecao();
+    event.target.classList.add("selecionado");
     baseEntrada = event.target.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-
     console.log(baseEntrada); 
 });
 
 
 document.getElementById("octal01").addEventListener("click", function(event) {
+    removerSelecao();
+    event.target.classList.add("selecionado");
     baseEntrada = event.target.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
     console.log(baseEntrada); 
@@ -25,45 +49,72 @@ document.getElementById("octal01").addEventListener("click", function(event) {
 
 
 document.getElementById("hex01").addEventListener("click", function(event) {
+    removerSelecao();
+    event.target.classList.add("selecionado");
     baseEntrada = event.target.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-
     console.log(baseEntrada); 
 });
 
 // Pegar base escolhida no campo direito
 
 document.getElementById("bin02").addEventListener("click", function(event) {
+    removerSelecaoSaida();
+    event.target.classList.add("selecionado2");
     baseSaida = event.target.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-
     console.log(baseSaida ); 
 });
 
 document.getElementById("dec02").addEventListener("click", function(event) {
+    removerSelecaoSaida();
+    event.target.classList.add("selecionado2");
     baseSaida = event.target.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-
     console.log(baseSaida); 
 });
 
 
 document.getElementById("octal02").addEventListener("click", function(event) {
+    removerSelecaoSaida();
+    event.target.classList.add("selecionado2");
     baseSaida = event.target.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-
     console.log(baseSaida ); 
 });
 
 
 document.getElementById("hex02").addEventListener("click", function(event) {
+    removerSelecaoSaida();
+    event.target.classList.add("selecionado2");
     baseSaida = event.target.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-
     console.log(baseSaida); 
 });
 
 
 
-document.querySelector(".input_translate01").addEventListener("change", (event) => {
+document.querySelector(".input_translate01").addEventListener("keydown", (event) => {
     valor = event.target.value
     console.log(valor);
+   
+
+    if (event.key === "Backspace" || event.key === "Delete" || event.key === "ArrowLeft" || event.key === "ArrowRight" || event.key === "Tab") {
+        return; 
+    }
+
+    if (baseEntrada == 'binario' ) {
+        
+        if (!/^[01]$/.test(event.key)) {
+            event.preventDefault();  
+        }
+    }
+    if (baseEntrada == 'octal') {
+        
+        if (!/^[01234567]$/.test(event.key)) {
+            event.preventDefault();
+        }
+    }
+
 });
+
+
+
 
 document.getElementById("icon").addEventListener("click", function(event) {
     converterValor(valor)
@@ -75,7 +126,6 @@ function converterValor(valor){
 
     if(baseEntrada == 'binario'){
         decimal = parseInt(valor, 2);
-         bin01.style.color = "red";
     }
     else if(baseEntrada == 'decimal'){
         decimal = parseInt(valor, 10);
@@ -104,5 +154,5 @@ function converterValor(valor){
 
     console.log(resultado);
 
-    div_translate02.innerHTML = `O resultado é: ${resultado}`
+    div_translate02.innerHTML = `${resultado}`
 }

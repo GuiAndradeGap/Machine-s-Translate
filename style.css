@@ -10,7 +10,7 @@
     --bg-color: var(--bg-color) #ffffff;
     --tex-color: #fff;
     --main-color: #;
-    --other-color: #484848;
+    --other-color: #F8F9FA;
     --h1-font: 4rem;
     --p-font: 1rem;
 }
@@ -37,9 +37,13 @@ header{
 .logo{
     display: flex;
     align-items: center;
-    color: var(--tex-color);
+    background-image: linear-gradient(to right, #4285F4, #EA4335, #FBBC05, #4285F4, #34A853);
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent;  
     font-size: 28px;
     font-weight: bold;
+   
 }
 
 .logo span:nth-child(1) {color: #4285F4;}
@@ -103,27 +107,47 @@ header{
     height: 200px;
     width: 500px;
     font-size: 16px;
-    border: 1px #9b9b9b solid;
+    border: 1px #9EE2EA solid;
     border-radius: 10px;
+    
 }
 
+
+
 #div_translate02{
+    padding: 10px 15px;
     color: #484848;
     background-color: var(--bg-color);
     height: 200px;
     width: 500px;
     font-size: 24px;
-    border: 1px var(--other-color) solid;
     border-radius: 10px;
     box-shadow: 0px 5px 5px rgb(145, 145, 145);
     background-color: #F5F5F5;
     box-shadow: 0.5px 1px 0px 0px rgb(0 0 0 / 20%);
+    font-size: 18px;
+    word-wrap: break-word; 
+    overflow: auto; 
 }
 
-#botaoAtivo{
-    color: #ff0000;
-}
 
+#div_translate02::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px; 
+  }
+  
+  #div_translate02::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  #div_translate02::-webkit-scrollbar-thumb {
+    background: #8B8B8B; 
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
 /*Botões das bases*/
 .div_bases_btn{
     display: flex;
@@ -133,16 +157,13 @@ header{
 }
 
 .div_bases_btn button{
-    color: var(--other-color);
     background-color: #fff;
-    border: 0px solid;
     cursor: pointer;
-    transition: all .5s ease;
+    transition: all ease-in 0.3s;
 }
 
 .div_bases_btn button:hover{
-    transform: translateY(-5px);
-    color: #4285F4;
+    color: #59b5c0;
 }
 
 .div_seta i{
@@ -153,11 +174,82 @@ header{
 }
 
 .div_seta i:hover{
-    color: #ff3b3b;
+    color: #5768CD;
     transform: translateX(5px);
 }
 
+.div_seta_mobile i{
+    color: #5F6368;
+    font-size: 50px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
 
+.div_seta_mobile i:hover{
+    color: #57575a;
+    transform: translateY(5px);
+}
+
+.botoes {
+    border: 0px;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.selecionado {
+    background-image: linear-gradient(to right, #267780, #8ac3ca, #267780);
+    -webkit-background-clip: text;  
+    background-clip: text; 
+    color: transparent; 
+    border-bottom: 1px solid #267780;
+  
+
+}
+
+.selecionado2 {
+    background-image: linear-gradient(to right, #66E2F0, #267780);
+    -webkit-background-clip: text; 
+    background-clip: text;  
+    color: transparent;  
+    border-bottom: 1px solid rgb(0, 62, 128);
+}
+
+#iconDown {
+    display: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .container{
+        flex-direction: column;
+     }
+
+     #div_translate02, .input_translate01 {
+        width: 103%;
+     }
+
+     .div_bases_btn {
+        padding-left: 7px;
+     }
+
+     header{
+        justify-content: center;
+       
+    }
+
+    .header-icons {
+        display: none;
+    }
+    #icon {
+        display: none;
+    }
+    
+    #iconDown {
+        display: block;
+    }
+}
 /* .div_conts_title{
     background-color: var(--other-color);
     justify-items: center;
